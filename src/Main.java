@@ -3,13 +3,10 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
-public class Main extends JFrame implements Runnable{
-    public Screen screen;
-    public Camera camera;
+public class Main extends JFrame implements Runnable {
     private static final long serialVersionUID = 1L;
     public int mapWidth = 15;
     public int mapHeight = 15;
@@ -18,6 +15,8 @@ public class Main extends JFrame implements Runnable{
     private BufferedImage image;
     public ArrayList<Textures> textures;
     public int[] pixels;
+    public Screen screen;
+    public Camera camera;
 
     public static int[][] map = {
             {1,1,1,1,1,1,1,1,2,2,2,2,2,2,2},
@@ -105,6 +104,6 @@ public class Main extends JFrame implements Runnable{
 
     public static void main(String [] args) {
 
-        Main game = new Main();
+        Main main = new Main();
     }
 }

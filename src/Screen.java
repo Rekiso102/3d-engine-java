@@ -29,8 +29,8 @@ public class Screen {
             double rayDirY = camera.yDir + camera.yPlane * cameraX;
 
             //Position
-            int mapX = (int) camera.xPos;
-            int mapY = (int) camera.yPos;
+            int mapX = (int)camera.xPos;
+            int mapY = (int)camera.yPos;
 
             double sideDistX;
             double sideDistY;
@@ -75,26 +75,30 @@ public class Screen {
                 if(map[mapX][mapY] > 0) hit = true;
             }
 
-            if(side == 0) perpWallDist = Math.abs((mapX - camera.xPos + (1 - stepX) / 2) / rayDirX);
-            else perpWallDist = Math.abs((mapY - camera.yPos + (1 - stepY) / 2) / rayDirY);
+            if(side == 0)
+                perpWallDist = Math.abs((mapX - camera.xPos + (1 - stepX) / 2) / rayDirX);
+            else
+                perpWallDist = Math.abs((mapY - camera.yPos + (1 - stepY) / 2) / rayDirY);
 
             int lineHeight;
             if (perpWallDist > 0) lineHeight = Math.abs((int)(height / perpWallDist));
             else lineHeight = height;
 
             int drawStart = -lineHeight / 2 + height / 2;
-            if(drawStart < 0) drawStart = 0;
+            if(drawStart < 0)
+                drawStart = 0;
 
             int drawEnd = lineHeight / 2 + height / 2;
-            if(drawEnd >= height) drawEnd = height - 1;
+            if(drawEnd >= height)
+                drawEnd = height - 1;
 
             int texNum = map[mapX][mapY] - 1;
             double wallX;
 
             if(side == 1) {
-                wallX = (camera.xPos + ((mapY - camera.yPos + (1 - stepY) / 2) / rayDirX) * rayDirX);
+                wallX = (camera.xPos + ((mapY - camera.yPos + (1 - stepY) / 2) / rayDirY) * rayDirX);
             } else {
-                wallX = (camera.yPos + ((mapX - camera.xPos + (1 - stepX) / 2) / rayDirY) * rayDirY);
+                wallX = (camera.yPos + ((mapX - camera.xPos + (1 - stepX) / 2) / rayDirX) * rayDirY);
             }
 
             wallX -= Math.floor(wallX);
